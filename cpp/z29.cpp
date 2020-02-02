@@ -1,0 +1,30 @@
+//BB29. W kontenerze <list> umieścić 10 liczb (od 0 do 9). Utworzyć dwa iteratory. Iterator pierwszy ustawić na 4 element, a iterator drugi ustawić na 8 element kontenera (uwaga: indeksacja zaczyna się od 0!). Utworzyć drugi kontener <list> i skopiować elementy pierwszego kontenera do drugiego w zakresie wskazanym przez ustawione iteratory.
+
+#include <iostream>
+#include <list>
+
+using namespace std;
+
+int main()
+{
+
+    list<int> k1,k2;
+    list<int>::iterator i1,i2;
+
+    for(int i=0;i<10;i++) k1.push_back(i);
+
+    for(auto i:k1) cout << i <<", ";
+
+
+    i1=k1.begin();
+    i2=i1;
+    advance(i1,3);
+    advance(i2,8);
+
+    k2.assign(i1,i2);
+
+    cout << endl;
+
+    for(auto i:k2) cout << i <<", ";
+
+}
